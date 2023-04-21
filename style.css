@@ -1,49 +1,4 @@
 /* Basic Style */
-body {
-    background-color: #f8f8f8;
-    color: #333;
-    font-family: Lato, sans-serif;
-}
-
-.aaa {
-    width: 500px;
-    margin: 0 auto;
-    display: block;
-    text-align: right;
-}
-
-.aaa img {
-    width: 100%;
-}
-
-.aaa .more_inf {
-    font-family: fantasy, cursive;
-}
-
-@media (max-width: 768px) {
-
-  .aaa {
-      text-align: center;
-  }
-
-}
-
-.centered-main-page-element {
-    display: block;
-    width: 500px;
-    margin: 0 auto 0;
-}
-
-.task {
-    width: 56%;
-    display: inline-block;
-    flex-grow: 1;
-}
-
-.task-row-wrapper {
-    display: flex;
-}
-
 ul {
     margin: 0;
     padding: 0px;
@@ -57,6 +12,43 @@ h3 {
 input,
 button {
     outline: none;
+}
+
+body {
+    background-color: #f8f8f8;
+    color: #333;
+    font-family: Lato, sans-serif;
+}
+
+.header {
+    width: 500px;
+    margin: 0 auto;
+    display: block;
+    text-align: right;
+}
+
+.header__logo {
+    width: 100%;
+}
+
+.header__link {
+    font-family: fantasy, cursive;
+}
+
+.main {
+    display: block;
+    width: 500px;
+    margin: 0 auto 0;
+}
+
+.task {
+    width: 56%;
+    display: inline-block;
+    flex-grow: 1;
+}
+
+.task__list-wrapper {
+    display: flex;
 }
 
 button {
@@ -74,8 +66,7 @@ button:hover {
 }
 
 /* Heading */
-h3,
-label[for='new-task'] {
+.task__list-title {
     color: #333;
     font-weight: 700;
     font-size: 15px;
@@ -85,7 +76,8 @@ label[for='new-task'] {
     text-transform: uppercase;
 }
 
-input[type="text"] {
+.task__list-input,
+.task__list-wrapper-input {
     margin: 0;
     font-size: 18px;
     line-height: 18px;
@@ -98,17 +90,18 @@ input[type="text"] {
     color: #888;
 }
 
-input[type="text"]:focus {
+.task__list-input:focus,
+.task__list-wrapper-input:focus {
     color: #333;
 }
 
 /* New Task */
-label[for='new-task'] {
+.task__list-title-new {
     display: block;
     margin: 0 0 20px;
 }
 
-input#new-task {
+.task__list-wrapper-input {
     width: 318px;
 }
 
@@ -169,4 +162,12 @@ ul li.editMode input[type=text] {
 
 ul li.editMode label {
     display: none;
+}
+
+@media (max-width: 768px) {
+
+  .header {
+      text-align: center;
+  }
+
 }
