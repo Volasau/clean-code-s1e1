@@ -16,9 +16,8 @@ var completedTasksHolder=document.getElementById("task__list-items-completed");/
 
 //New task list item
 var createNewTaskElement=function(taskString){
-
     var listItem=document.createElement("li");
-
+    listItem.classList.add("task__list-item");
     //input (checkbox)
     var checkBox=document.createElement("input");//checkbx
     //label
@@ -31,19 +30,25 @@ var createNewTaskElement=function(taskString){
     //button.delete
     var deleteButton=document.createElement("button");//delete button
     var deleteButtonImg=document.createElement("img");//delete button image
+    deleteButtonImg.classList.add("button__delete-img");
 
     label.innerText=taskString;
-    label.className="task";
+    label.classList.add("task");
+    label.classList.add("task__list-label");
 
     //Each elements, needs appending
     checkBox.type="checkbox";
+    checkBox.classList.add("task__list-checkbox");
     editInput.type="text";
-    editInput.className="task";
+    editInput.classList.add("task");
+    editInput.classList.add("task__list-input");
 
     editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
-    editButton.className="task__list-button-edit";
+    editButton.className = "task__list-button-edit";
+    editButton.classList.add("button");
 
     deleteButton.className="task__list-button-delete";
+    deleteButton.classList.add("button");
     deleteButtonImg.src="./remove.svg";
     deleteButton.appendChild(deleteButtonImg);
 
@@ -122,6 +127,7 @@ var taskCompleted=function(){
     //Append the task list item to the #completed-tasks
     var listItem=this.parentNode;
     completedTasksHolder.appendChild(listItem);
+    listItem.children[1].classList.add("task__list-label-copmleted");
     bindTaskEvents(listItem, taskIncomplete);
 
 }
@@ -134,6 +140,7 @@ var taskIncomplete=function(){
     //Append the task list item to the #incompleteTasks.
     var listItem=this.parentNode;
     incompleteTaskHolder.appendChild(listItem);
+    listItem.children[1].classList.remove("task__list-label-copmleted");
     bindTaskEvents(listItem,taskCompleted);
 }
 
